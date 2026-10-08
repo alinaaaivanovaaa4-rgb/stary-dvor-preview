@@ -76,9 +76,6 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
 .ribbon-track { display: flex; width: max-content; animation: ribbon-run 38s linear infinite; font-family: var(--font-oswald), sans-serif; font-size: 88px; font-weight: 400; line-height: 1.15; letter-spacing: -.02em; text-transform: uppercase; }
 .ribbon-group { display: flex; align-items: center; gap: 60px; padding-right: 60px; }
 .ribbon-group a:nth-child(even) { color: transparent; -webkit-text-stroke: 1px var(--ink); }
-.ribbon-toggle { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; background: var(--paper); border: 1px solid var(--line); border-right: 0; border-bottom: 0; font-size: 11px; }
-.ribbon-toggle svg { width: 14px; height: 14px; }
-.ribbon-toggle:focus-visible { outline-offset: -4px; }
 @keyframes ribbon-run { to { transform: translateX(-50%); } }
 .section-opening { display: flex; align-items: flex-end; justify-content: space-between; gap: 60px; }
 .section-opening h2 { font-family: var(--font-oswald), sans-serif; font-weight: 400; font-size: clamp(56px, 6.4vw, 88px); line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; }
@@ -232,8 +229,9 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
   .hero-statement .hero-invitation { font-size: 30px; margin-top: 18px; }
   .hero-action { margin-top: 0; font-size: 19px; gap: 22px; }
   .action-disc { width: 64px; height: 64px; }
-  .hero-plate { width: calc(100% + 24px); margin: 0 -12px; padding-block: 30px 60px; }
-  .hero-plate figcaption { right: 14px; font-size: 12px; }
+  .hero-plate { width: 86%; max-width: 320px; margin: 0 auto; padding-block: 8px 0; }
+  .hero-plate .plate-parallax { transform: none; }
+  .hero-plate figcaption { position: static; width: fit-content; margin: 12px 0 0 auto; padding-top: 8px; font-size: 12px; }
   .hero-bottom { font-size: 12px; display: grid; grid-template-columns: 1fr; gap: 16px; padding-top: 20px; }
   .hero-bottom p { display: flex; flex-wrap: wrap; gap: 4px 18px; }
   .hero-bottom p span { display: inline; }
@@ -241,7 +239,7 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
   .kitchen-ribbon { margin-top: 24px; padding-block: 16px; }
   .ribbon-track { font-size: 58px; }
   .ribbon-group { gap: 32px; padding-right: 32px; }
-  .hero-actions { gap: 14px; margin-top: 24px; }
+  .hero-actions { gap: 8px; margin-top: 24px; }
   .hero-kitchen-link { font-size: 12px; }
   .section-opening { display: block; }
   .section-opening h2 { font-size: 55px; line-height: 1.04; }

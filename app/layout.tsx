@@ -12,7 +12,17 @@ const handwritten = localFont({ src: "../public/fonts/MarckScript.ttf", variable
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url), title: site.seo.title, description: site.seo.description,
-  openGraph: { title: site.seo.title, description: site.seo.description, type: "website", locale: "ru_RU" },
+  openGraph: {
+    title: "Кафе «Старый Двор» — Тверь",
+    description: "Хачапури с пылу, шашлык с огня. И все свои за столом. Меню, цены и бронирование.",
+    url: site.url, siteName: site.name, type: "website", locale: "ru_RU",
+    images: [{ url: new URL(assetPath("/social-preview.png"), site.url).toString(), width: 1200, height: 630, alt: "Старый Двор — хачапури с пылу, шашлык с огня. Тверь." }]
+  },
+  twitter: {
+    card: "summary_large_image", title: "Кафе «Старый Двор» — Тверь",
+    description: "Хачапури с пылу, шашлык с огня. И все свои за столом.",
+    images: [new URL(assetPath("/social-preview.png"), site.url).toString()]
+  },
   alternates: { canonical: site.url }, icons: { icon: assetPath("/favicon.svg") },
   robots: process.env.NEXT_PUBLIC_PREVIEW === "true" ? { index: false, follow: false } : undefined
 };
