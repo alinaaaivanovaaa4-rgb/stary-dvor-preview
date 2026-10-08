@@ -73,7 +73,7 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
 .hero-bottom p span { margin-left: 20px; }
 .hero-bottom .arrow-icon { width: 20px; }
 .kitchen-ribbon { position: relative; overflow: clip; margin-top: 30px; padding-block: 18px 26px; border-block: 1px solid var(--line); }
-.ribbon-track { display: flex; width: max-content; animation: ribbon-run 38s linear infinite; font-family: var(--font-oswald), sans-serif; font-size: 88px; font-weight: 400; line-height: 1.15; letter-spacing: -.02em; text-transform: uppercase; }
+.ribbon-track { display: flex; width: max-content; animation: ribbon-run 48s linear infinite; font-family: var(--font-oswald), sans-serif; font-size: 88px; font-weight: 400; line-height: 1.15; letter-spacing: -.02em; text-transform: uppercase; }
 .ribbon-group { display: flex; align-items: center; gap: 60px; padding-right: 60px; }
 .ribbon-group a:nth-child(even) { color: transparent; -webkit-text-stroke: 1px var(--ink); }
 @keyframes ribbon-run { to { transform: translateX(-50%); } }
@@ -190,8 +190,8 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
 ::view-transition-new(cuisine-dishes), ::view-transition-new(cuisine-copy) { animation: page-in .4s var(--ease) both; }
 ::view-transition-new(menu-list) { animation: menu-turn .36s var(--ease) both; }
 @keyframes title-in { from { clip-path: inset(100% 0 0); transform: translateY(22px); } to { clip-path: inset(0); transform: translateY(0); } }
-@keyframes dish-leave { to { opacity: 0; transform: translateX(-40px) rotate(-5deg); clip-path: inset(0 50% 0 0); } }
-@keyframes dish-arrive { from { opacity: 1; transform: translateX(60px) rotate(6deg); clip-path: inset(0 0 0 100%); } to { opacity: 1; transform: translateX(0) rotate(0); clip-path: inset(0); } }
+@keyframes dish-leave { to { opacity: 0; transform: translateX(-12px); } }
+@keyframes dish-arrive { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes menu-turn { from { opacity: 0; transform: perspective(900px) translateX(24px) rotateY(7deg); clip-path: inset(0 12% 0 0); } to { opacity: 1; transform: perspective(900px) translateX(0) rotateY(0); clip-path: inset(0); } }
 @keyframes page-out { to { opacity: 0; transform: translateY(-8px); } }
 @keyframes page-in { from { opacity: 0; transform: translateY(12px); clip-path: inset(0 0 8% 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
@@ -348,3 +348,11 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
 
 .kitchen-tail > a { flex-shrink: 0; }
 .banquets p + p { margin-top: 12px; }
+
+.footer-music { display: flex; justify-content: space-between; align-items: center; gap: 40px; padding-block: 38px 44px; }
+.footer-music h2 { font-size: clamp(28px, 3vw, 44px); line-height: 1.18; }
+.footer-music p { max-width: 370px; font-size: 14px; line-height: 1.7; }
+@media (max-width: 760px) {
+  .footer-music { display: block; padding-block: 20px 32px; }
+  .footer-music p { margin-top: 16px; }
+}

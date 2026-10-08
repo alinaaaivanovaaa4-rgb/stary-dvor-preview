@@ -20,6 +20,7 @@ export default function MotionStudio() {
     let disposed = false;
     let frame = 0;
     let pointerFrame = 0;
+    let tiltFrame = 0;
     let heroVisible = true;
     let introduced = false;
     const animations: Animation[] = [];
@@ -40,10 +41,10 @@ export default function MotionStudio() {
       const length = document.documentElement.scrollHeight - window.innerHeight;
       progressLine?.style.setProperty("--reading", `${length > 0 ? Math.min(1, window.scrollY / length) : 0}`);
       if (reduced.matches) return;
-      if (heroVisible && hero && plate) {
+      if (fine.matches && heroVisible && hero && plate) {
         const progress = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / hero.offsetHeight));
-        plate.style.setProperty("--plate-y", `${progress * -62}px`);
-        plate.style.setProperty("--plate-turn", `${progress * -5}deg`);
+        plate.style.setProperty("--plate-y", `${progress * -24}px`);
+        plate.style.setProperty("--plate-turn", `0deg`);
       }
 
     };
@@ -58,7 +59,7 @@ export default function MotionStudio() {
     const footerObserver = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting || footerPrinted || reduced.matches || document.hidden || !footer) return;
       footerPrinted = true;
-      animations.push(footer.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 720, easing: "steps(6,end)" }));
+      animations.push(footer.animate([{ opacity: .35, transform: "translateY(12px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 650, easing }));
     }, { threshold: .25 });
     if (footer) footerObserver.observe(footer);
     const sizeObserver = new ResizeObserver(queueScroll);
@@ -67,12 +68,15 @@ export default function MotionStudio() {
     const tiltPointer = (event: PointerEvent) => {
       if (reduced.matches || !fine.matches || document.hidden) return;
       const surface = (event.target as Element).closest<HTMLElement>(".hero-plate, .cuisine-art");
-      if (tilted && tilted !== surface) { tilted.style.setProperty("--tilt-x", "0deg"); tilted.style.setProperty("--tilt-y", "0deg"); }
-      tilted = surface;
-      if (!surface) return;
-      const box = surface.getBoundingClientRect();
-      surface.style.setProperty("--tilt-x", `${(event.clientY - box.top - box.height / 2) / box.height * -4}deg`);
-      surface.style.setProperty("--tilt-y", `${(event.clientX - box.left - box.width / 2) / box.width * 4}deg`);
+      cancelAnimationFrame(tiltFrame);
+      tiltFrame = requestAnimationFrame(() => {
+        if (tilted && tilted !== surface) { tilted.style.setProperty("--tilt-x", "0deg"); tilted.style.setProperty("--tilt-y", "0deg"); }
+        tilted = surface;
+        if (!surface) return;
+        const box = surface.getBoundingClientRect();
+        surface.style.setProperty("--tilt-x", `${(event.clientY - box.top - box.height / 2) / box.height * -2}deg`);
+        surface.style.setProperty("--tilt-y", `${(event.clientX - box.left - box.width / 2) / box.width * 2}deg`);
+      });
     };
 
     const introduce = async () => {
@@ -80,14 +84,14 @@ export default function MotionStudio() {
       introduced = true;
       await Promise.all([logo, engraving].filter(Boolean).map(img => img!.decode().catch(() => undefined)));
       if (disposed || reduced.matches || document.hidden || !heroVisible) return;
-      if (invitation) animations.push(invitation.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 850, delay: 400, easing: "steps(32,end)", fill: "backwards" }));
+      if (invitation) animations.push(invitation.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 850, delay: 400, easing: "cubic-bezier(.4,0,.2,1)", fill: "backwards" }));
       if (logo) animations.push(logo.animate([
-        { clipPath: "inset(100% 0 0 0)", transform: "translateY(28px) skewY(3deg)" },
-        { clipPath: "inset(0 0 0 0)", transform: "translateY(0) skewY(0)" }
+        { opacity: .25, transform: "translateY(12px)" },
+        { opacity: 1, transform: "translateY(0)" }
       ], { duration: 760, easing }));
       if (engraving) animations.push(engraving.animate([
-        { clipPath: "inset(0 0 0 100%)", transform: "translateX(65px) rotate(8deg) scale(.94)" },
-        { clipPath: "inset(0 0 0 0)", transform: "translateX(0) rotate(0) scale(1)" }
+        { opacity: .25, transform: "translateY(16px)" },
+        { opacity: 1, transform: "translateY(0)" }
       ], { duration: 760, delay: 120, easing, fill: "backwards" }));
     };
     const movePointer = (event: PointerEvent) => {
@@ -130,6 +134,7 @@ export default function MotionStudio() {
       disposed = true;
       cancelAnimationFrame(frame);
       cancelAnimationFrame(pointerFrame);
+      cancelAnimationFrame(tiltFrame);
       observer.disconnect();
       footerObserver.disconnect();
       sizeObserver.disconnect();

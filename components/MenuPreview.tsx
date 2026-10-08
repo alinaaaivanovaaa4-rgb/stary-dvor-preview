@@ -5,7 +5,6 @@ import DishExplanation from "@/components/DishExplanation";
 import { menuCategories } from "@/data/menu";
 import { categoryIntros, dishExplanations } from "@/data/menu-editorial";
 import { formatPrice } from "@/lib/utils";
-import { changeView } from "@/lib/transitions";
 const displayNames: Record<string, string> = { grill: "На мангале", hot: "Горячие блюда", preorder: "По предзаказу", fry: "Фритюр", drinks: "Напитки" };
 const order = ["grill", "khachapuri", "sadj", "soups", "hot", "second", "salads", "cold", "preorder", "pasta", "fry", "sides", "desserts", "drinks", "sauces"];
 
@@ -44,7 +43,7 @@ export default function MenuPreview({ activeId, onCategoryChange, query, onQuery
     root.querySelectorAll<HTMLElement>("li[data-dish-id]").forEach((row, index) => {
       const id = row.dataset.dishId!, y = row.getBoundingClientRect().top - top;
       next.set(id, y);
-      if (!changed || reduced) return;
+      if (!changed || reduced || index > 15 || row.getBoundingClientRect().bottom < 0 || row.getBoundingClientRect().top > window.innerHeight + 100) return;
       const old = positions.current.get(id);
       const offset = old === undefined ? 10 : Math.max(-180, Math.min(180, old - y));
       rowAnimations.current.push(row.animate([{ transform: `translateY(${offset}px)`, opacity: old === undefined ? 0 : 1 }, { transform: "translateY(0)", opacity: 1 }], { duration: 220, delay: old === undefined ? Math.min(index, 5) * 16 : 0, easing: "cubic-bezier(.16,1,.3,1)" }));
@@ -55,7 +54,7 @@ export default function MenuPreview({ activeId, onCategoryChange, query, onQuery
     const start = document.getElementById("menu-list-start");
     const belowHeading = start && start.getBoundingClientRect().top < 0;
     const update = () => { onCategoryChange(id); setQuery(""); };
-    changeView(update);
+    update();
     if (belowHeading) { requestAnimationFrame(() => start.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" })); }
   };
   return <section id="menu" className="menu-section" aria-labelledby="menu-title"><div className="container">
