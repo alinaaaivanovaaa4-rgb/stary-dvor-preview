@@ -129,9 +129,12 @@ export default function MotionStudio() {
     reduced.addEventListener("change", preferenceChanged);
     action?.addEventListener("pointermove", movePointer);
     action?.addEventListener("pointerleave", leavePointer);
-    void introduce();
+    const pageReady = () => { void introduce(); };
+    window.addEventListener("cafe:ready", pageReady);
+    if (!document.querySelector(".site-loader")) void introduce();
     return () => {
       disposed = true;
+      window.removeEventListener("cafe:ready", pageReady);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(pointerFrame);
       cancelAnimationFrame(tiltFrame);

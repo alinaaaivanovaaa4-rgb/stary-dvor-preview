@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import "./globals.css";
+import SiteLoader from "@/components/SiteLoader";
 import { assetPath } from "@/lib/assets";
 import { site } from "@/data/site";
 
@@ -28,5 +29,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="ru" className={`${golos.variable} ${oswald.variable} ${handwritten.variable}`}><body>{children}</body></html>;
+  return <html lang="ru" className={`${golos.variable} ${oswald.variable} ${handwritten.variable}`}><body><SiteLoader /><noscript><style>{".site-loader{display:none!important}"}</style></noscript>{children}</body></html>;
 }
