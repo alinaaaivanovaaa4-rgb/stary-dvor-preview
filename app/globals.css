@@ -383,3 +383,7 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(4px); }
   .site-loader-bottom-right { bottom: 22px; right: -22px; }
 }
 @media (prefers-reduced-motion: reduce) { .site-loader-art { animation: none; } }
+/* A slow script download must never leave the decorative overlay on screen. */
+.site-loader { animation: loader-timeout .32s ease 2.4s forwards; }
+@keyframes loader-timeout { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .site-loader { animation: loader-timeout .01s linear 2.4s forwards !important; } }
