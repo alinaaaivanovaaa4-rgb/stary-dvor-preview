@@ -1,0 +1,30 @@
+{
+  "file": "stary-dvor-menu.pdf",
+  "sources": [
+    "обложка.pdf",
+    "титульный.pdf",
+    "шашлык.pdf",
+    "шашлык и овощи.pdf",
+    "рыба на мангале.pdf",
+    "хачапури.pdf",
+    "садж.pdf",
+    "первое.pdf",
+    "горячее.pdf",
+    "второе.pdf",
+    "салаты.pdf",
+    "теплые салаты.pdf",
+    "холодные закуски.pdf",
+    "холодные закуски2.pdf",
+    "пред.заказ.pdf",
+    "паста.pdf",
+    "фритюр.pdf",
+    "гарниры/хлеб.pdf",
+    "пирожное.pdf",
+    "кофе.pdf",
+    "чай.pdf",
+    "б/а напитки.pdf",
+    "соусы.pdf",
+    "заказ банкета.pdf"
+  ],
+  "note": "Original café PDFs merged without changing artwork, text or prices."
+}

@@ -1,0 +1,10 @@
+{
+  "source": "Original café PDFs from Старый двор меню",
+  "generated": false,
+  "assets": {
+    "wordmark": "обложка.pdf",
+    "grill": "шашлык.pdf",
+    "khachapuri": "хачапури.pdf",
+    "sadj": "садж.pdf"
+  }
+}

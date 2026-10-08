@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+.DS_Store
+*.log
+*.tsbuildinfo
+.impeccable/
+.qa/
+tmp/
+assets/
+Старый двор меню/
+Старый двор меню/
+PRODUCT.md
+DESIGN.md
+scripts/extract-menu.py

@@ -1,0 +1,30 @@
+{
+  "generated": true,
+  "tool": "built-in image_gen",
+  "date": "2026-10-07",
+  "description": "User-authorized new woodcut illustrations; illustrative artwork, not actual food photographs",
+  "assets": [
+    {
+      "file": "dolma.png",
+      "prompt": "A crisp bold traditional woodcut / linocut engraving of a ceramic plate holding eight rolled grape leaf dolma with a small sour cream bowl, viewed from three-quarter overhead. ONLY dark brown-black #433A35 ink on PURE WHITE solid background. Entire plate visible centered, landscape 3:2, margins10%. Clearly visible distinct grape leaf rolls, carved bold highlights and coarse negative white hatching, broad high contrast shapes, similar to an old Caucasian restaurant printed menu. Flat printed artwork, no photorealism, NO shadows, NO blur, NO glow, NO gradients, no texture outside the illustration, no words, no border, no logo. White spaces within the drawing are paper cutouts. A beautiful readable printing block illustration."
+    },
+    {
+      "file": "bozbash.png",
+      "prompt": "A crisp bold traditional woodcut / linocut engraving of BOZBASH soup in a shallow rustic ceramic bowl: clearly visible lamb chunks on bone, chickpeas, large potato pieces and a few herb leaves, a spoon beside bowl. Three-quarter overhead view, bowl centered fully visible, landscape3:2 margin10%. ONLY dark brown-black #433A35 ink on PURE WHITE solid paper background. Thick silhouettes, coarse hand-carved white highlights and hatching, readable simplified shapes, same sophisticated old Caucasian printed restaurant menu illustration family as a woodcut dolma plate. Flat two-tone printing artwork. Absolutely no photography, shading gradients, shadows, blur, glow, texture outside drawing, words, frame, logo. White spaces are carved paper highlights. Illustrative composition, not an actual cafe photograph."
+    },
+    {
+      "file": "dolma-coarse.png",
+      "prompt": "Use case: stylized-concept. Create a standalone restaurant food illustration. Reference screenshot is ONLY a STYLE reference: match the ORIGINAL GRILL illustration on the RIGHT of the screenshot, ignore every text and UI element. Flat very coarse rough block-print silhouette, large solid dark brown #433A35 shapes with sparse irregular broad white carved highlights, chunky thick contours, almost stencil-like. Match the grill's deliberately SIMPLE reduced drawing and bold ink coverage. NOT the fine detailed ornate dolma illustrations generated previously. Plain PURE WHITE opaque background, landscape3:2, full subject centered with generous margins. NO tiny hatching, no crosshatching, no stippling, no decorative plate patterns, no realistic shading, no extra colors, no gradients, no photographic textures, no shadows, no text, no border. Only TWO flat colors brown and white. A simple shallow plain plate holding SIX rolled grape-leaf dolma; rolls are chunky dark silhouettes, grape leaves shown with only a few broad irregular white cuts. One small plain sour cream bowl at side. Three-quarter overhead view. Coarse expressive asymmetric printed outlines, deliberately reduced forms like the source grill.",
+      "date": "2026-10-08",
+      "styleReference": "Original grill.svg via hero screenshot",
+      "tool": "built-in image_gen"
+    },
+    {
+      "file": "bozbash-coarse.png",
+      "prompt": "Use case: stylized-concept. Create a standalone restaurant food illustration. Reference screenshot is ONLY a STYLE reference: match the ORIGINAL GRILL illustration on the RIGHT of the screenshot, ignore every text and UI element. Flat very coarse rough block-print silhouette, large solid dark brown #433A35 shapes with sparse irregular broad white carved highlights, chunky thick contours, almost stencil-like. Match the grill's deliberately SIMPLE reduced drawing and bold ink coverage. NOT the fine detailed ornate dolma illustrations generated previously. Plain PURE WHITE opaque background, landscape3:2, full subject centered with generous margins. NO tiny hatching, no crosshatching, no stippling, no decorative plate patterns, no realistic shading, no extra colors, no gradients, no photographic textures, no shadows, no text, no border. Only TWO flat colors brown and white. A simple rustic bowl of bozbash soup with TWO chunky lamb pieces including a bone, THREE large potato chunks, a few simplified chickpeas, and one sprig. A single simple spoon beside it. Broad dark ink bowl silhouette with very few carved white highlights. Three-quarter overhead view. Coarse expressive asymmetric printed outlines, deliberately reduced forms like the source grill.",
+      "date": "2026-10-08",
+      "styleReference": "Original grill.svg via hero screenshot",
+      "tool": "built-in image_gen"
+    }
+  ]
+}
